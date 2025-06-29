@@ -1,22 +1,22 @@
 
-import Header from '@/components/Header';
-import Hero from '@/components/Hero';
-import About from '@/components/About';
-import Services from '@/components/Services';
-import Projects from '@/components/Projects';
-import Testimonials from '@/components/Testimonials';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import Header from '@/components/portfolio/Header';
+import Hero from '@/components/portfolio/Hero';
+import About from '@/components/portfolio/About';
+import Skills from '@/components/portfolio/Skills';
+import Projects from '@/components/portfolio/Projects';
+import Experience from '@/components/portfolio/Experience';
+import Contact from '@/components/portfolio/Contact';
+import Footer from '@/components/portfolio/Footer';
 
 const Index = () => {
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Header />
       <Hero />
       <About />
-      <Services />
+      <Skills />
       <Projects />
-      <Testimonials />
+      <Experience />
       <Contact />
       <Footer />
     </div>

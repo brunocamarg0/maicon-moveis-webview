@@ -19,6 +19,14 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				display: ['Urbanist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				body: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+				accent: ['Poppins', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+				// Mantendo compatibilidade com o código existente
+				playfair: ['Urbanist', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -74,6 +82,7 @@ export default {
 					700: '#a64f1c',
 					800: '#864020',
 					900: '#6d351c',
+					950: '#3d1f0e',
 				}
 			},
 			borderRadius: {

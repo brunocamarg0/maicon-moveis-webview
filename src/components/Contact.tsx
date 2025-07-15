@@ -2,6 +2,7 @@
 import { MapPin, Phone, Mail, Clock, MessageCircle, Send } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Contact = () => {
   const contactInfo = [
@@ -46,16 +47,28 @@ const Contact = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h2 className="text-4xl lg:text-5xl font-playfair font-bold mb-4">
             Entre em <span className="text-wood-300">Contato</span>
           </h2>
           <p className="text-xl text-wood-200 max-w-3xl mx-auto leading-relaxed">
             Pronto para transformar seus ambientes? Nossa equipe está aqui para ajudar você a realizar o projeto dos seus sonhos.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16 items-start">
+        <motion.div
+          className="grid lg:grid-cols-2 gap-16 items-start"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        >
           {/* Contact Form */}
           <Card className="bg-white shadow-2xl border-wood-200">
             <CardContent className="p-8">
@@ -193,7 +206,7 @@ const Contact = () => {
               </ul>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

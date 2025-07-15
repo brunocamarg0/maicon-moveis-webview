@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { ChevronLeft, ChevronRight, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Projects = () => {
   const [currentProject, setCurrentProject] = useState(0);
@@ -54,17 +55,29 @@ const Projects = () => {
     <section id="projects" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-wood-900 mb-4">
             Nossos <span className="text-wood-gradient">Projetos</span>
           </h2>
           <p className="text-xl text-wood-700 max-w-3xl mx-auto leading-relaxed">
             Conheça alguns dos projetos que transformaram a vida dos nossos clientes.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Project Display */}
-        <div className="mb-12">
+        <motion.div
+          className="mb-12"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        >
           <Card className="overflow-hidden shadow-2xl border-wood-200">
             <div className="grid lg:grid-cols-2">
               {/* Image */}
@@ -139,7 +152,7 @@ const Projects = () => {
               <ChevronRight className="h-6 w-6 text-wood-700" />
             </button>
           </div>
-        </div>
+        </motion.div>
 
         {/* Project Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">

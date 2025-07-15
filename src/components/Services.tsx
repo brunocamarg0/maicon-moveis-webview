@@ -1,6 +1,7 @@
 
 import { Home, Bed, Shirt, Briefcase, Utensils, BookOpen } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
 
 const Services = () => {
   const services = [
@@ -46,17 +47,29 @@ const Services = () => {
     <section id="services" className="py-20 bg-gradient-to-br from-wood-50 to-white">
       <div className="container mx-auto px-4">
         {/* Header */}
-        <div className="text-center mb-16">
+        <motion.div
+          className="text-center mb-16"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+        >
           <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-wood-900 mb-4">
             Nossos <span className="text-wood-gradient">Serviços</span>
           </h2>
           <p className="text-xl text-wood-700 max-w-3xl mx-auto leading-relaxed">
             Oferecemos soluções completas em móveis planejados para todos os ambientes da sua casa ou empresa.
           </p>
-        </div>
+        </motion.div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.6 }}
+          transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+        >
           {services.map((service, index) => (
             <Card key={index} className="group hover:shadow-xl transition-all duration-300 border-wood-200 hover:border-wood-300">
               <CardContent className="p-8">
@@ -83,7 +96,7 @@ const Services = () => {
               </CardContent>
             </Card>
           ))}
-        </div>
+        </motion.div>
 
         {/* CTA Section */}
         <div className="mt-16 text-center">

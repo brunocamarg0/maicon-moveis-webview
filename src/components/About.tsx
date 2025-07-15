@@ -1,5 +1,6 @@
 
 import { Check, Users, Award, Clock } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const About = () => {
   const features = [
@@ -16,7 +17,13 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Images */}
-          <div className="relative">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: -60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.9, ease: 'easeOut' }}
+          >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="aspect-[3/4] bg-wood-200 rounded-2xl overflow-hidden">
@@ -44,10 +51,16 @@ const About = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Content */}
-          <div className="space-y-8">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
+          >
             <div className="space-y-4">
               <h2 className="text-4xl lg:text-5xl font-playfair font-bold text-wood-900">
                 Sobre a 
@@ -101,7 +114,7 @@ const About = () => {
                 <div className="text-sm text-wood-600">No Prazo</div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

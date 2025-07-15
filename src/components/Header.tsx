@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Menu, X, Phone, MessageCircle } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -46,22 +47,37 @@ const Header = () => {
           {/* Contact Buttons */}
           <div className="hidden md:flex items-center space-x-3">
             <Button variant="outline" size="sm" className="border-wood-300 text-wood-700 hover:bg-wood-50">
-              <Phone className="h-4 w-4 mr-2" />
+              <motion.span whileHover={{ scale: 1.2, rotate: -10 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <Phone className="h-4 w-4 mr-2" />
+              </motion.span>
               Ligar
             </Button>
             <Button size="sm" className="bg-green-600 hover:bg-green-700 text-white">
-              <MessageCircle className="h-4 w-4 mr-2" />
+              <motion.span whileHover={{ scale: 1.2, rotate: 10 }} transition={{ type: 'spring', stiffness: 300 }}>
+                <MessageCircle className="h-4 w-4 mr-2" />
+              </motion.span>
               WhatsApp
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <button
+          <motion.button
             className="md:hidden p-2 text-wood-700"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            whileTap={{ scale: 0.85, rotate: 15 }}
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: 'spring', stiffness: 300, damping: 18 }}
           >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+            {isMenuOpen ? (
+              <motion.span whileHover={{ rotate: 90 }} transition={{ duration: 0.3 }}>
+                <X size={24} />
+              </motion.span>
+            ) : (
+              <motion.span whileHover={{ rotate: 90 }} transition={{ duration: 0.3 }}>
+                <Menu size={24} />
+              </motion.span>
+            )}
+          </motion.button>
         </div>
 
         {/* Mobile Menu */}

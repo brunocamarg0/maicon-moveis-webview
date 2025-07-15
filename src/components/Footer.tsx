@@ -1,5 +1,6 @@
 
 import { MapPin, Phone, Mail, Instagram, Facebook, Youtube } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Footer = () => {
   return (
@@ -22,15 +23,33 @@ const Footer = () => {
               Sua satisfação é nossa prioridade.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300">
+              <motion.a
+                href="#"
+                className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                whileHover={{ scale: 1.18, rotate: -10 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+              >
                 <Instagram className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300">
+              </motion.a>
+              <motion.a
+                href="#"
+                className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                whileHover={{ scale: 1.18, rotate: 10 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+              >
                 <Facebook className="h-5 w-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300">
+              </motion.a>
+              <motion.a
+                href="#"
+                className="w-10 h-10 bg-wood-800 hover:bg-wood-700 rounded-full flex items-center justify-center transition-colors duration-300"
+                whileHover={{ scale: 1.18, rotate: -8 }}
+                whileTap={{ scale: 0.92 }}
+                transition={{ type: 'spring', stiffness: 260, damping: 18 }}
+              >
                 <Youtube className="h-5 w-5" />
-              </a>
+              </motion.a>
             </div>
           </div>
 

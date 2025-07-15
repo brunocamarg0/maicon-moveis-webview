@@ -6,6 +6,7 @@ import { ArrowLeft, ArrowRight } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { motion } from 'framer-motion';
 
 type CarouselApi = UseEmblaCarouselType[1]
 type UseCarouselParameters = Parameters<typeof useEmblaCarousel>
@@ -177,7 +178,7 @@ const CarouselItem = React.forwardRef<
   const { orientation } = useCarousel()
 
   return (
-    <div
+    <motion.div
       ref={ref}
       role="group"
       aria-roledescription="slide"
@@ -186,6 +187,12 @@ const CarouselItem = React.forwardRef<
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className
       )}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.5 }}
+      transition={{ duration: 0.7, ease: 'easeOut' }}
+      whileHover={{ scale: 1.02, boxShadow: '0 4px 16px rgba(0,0,0,0.08)' }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     />
   )
@@ -199,10 +206,8 @@ const CarouselPrevious = React.forwardRef<
   const { orientation, scrollPrev, canScrollPrev } = useCarousel()
 
   return (
-    <Button
+    <motion.button
       ref={ref}
-      variant={variant}
-      size={size}
       className={cn(
         "absolute  h-8 w-8 rounded-full",
         orientation === "horizontal"
@@ -212,11 +217,14 @@ const CarouselPrevious = React.forwardRef<
       )}
       disabled={!canScrollPrev}
       onClick={scrollPrev}
+      whileHover={{ scale: 1.15, rotate: -15 }}
+      whileTap={{ scale: 0.92 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 18 }}
       {...props}
     >
       <ArrowLeft className="h-4 w-4" />
       <span className="sr-only">Previous slide</span>
-    </Button>
+    </motion.button>
   )
 })
 CarouselPrevious.displayName = "CarouselPrevious"
@@ -228,10 +236,8 @@ const CarouselNext = React.forwardRef<
   const { orientation, scrollNext, canScrollNext } = useCarousel()
 
   return (
-    <Button
+    <motion.button
       ref={ref}
-      variant={variant}
-      size={size}
       className={cn(
         "absolute h-8 w-8 rounded-full",
         orientation === "horizontal"
@@ -241,11 +247,14 @@ const CarouselNext = React.forwardRef<
       )}
       disabled={!canScrollNext}
       onClick={scrollNext}
+      whileHover={{ scale: 1.15, rotate: 15 }}
+      whileTap={{ scale: 0.92 }}
+      transition={{ type: 'spring', stiffness: 260, damping: 18 }}
       {...props}
     >
       <ArrowRight className="h-4 w-4" />
       <span className="sr-only">Next slide</span>
-    </Button>
+    </motion.button>
   )
 })
 CarouselNext.displayName = "CarouselNext"

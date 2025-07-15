@@ -1,6 +1,7 @@
 
 import { ArrowRight, Star, Users, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   return (
@@ -8,7 +9,13 @@ const Hero = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Content */}
-          <div className="space-y-8 animate-fade-in">
+          <motion.div
+            className="space-y-8"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.8, ease: 'easeOut' }}
+          >
             <div className="space-y-4">
               <h1 className="text-5xl lg:text-6xl font-playfair font-bold text-wood-900 leading-tight">
                 Móveis Planejados
@@ -60,10 +67,16 @@ const Hero = () => {
                 Ver Projetos
               </Button>
             </div>
-          </div>
+          </motion.div>
 
           {/* Image */}
-          <div className="relative animate-slide-in-right">
+          <motion.div
+            className="relative"
+            initial={{ opacity: 0, x: 60 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 0.9, ease: 'easeOut', delay: 0.2 }}
+          >
             <div className="aspect-[4/3] bg-wood-200 rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src="https://images.unsplash.com/photo-1721322800607-8c38375eef04?auto=format&fit=crop&w=800&q=80"
@@ -83,7 +96,7 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>
